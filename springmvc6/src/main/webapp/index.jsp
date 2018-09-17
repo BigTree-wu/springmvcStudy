@@ -38,7 +38,7 @@
                 alert("登陆的用户信息：" + msg.id + ":" + msg.username + ":" + msg.password);
             },
             error: function (msg) {
-                alert("你的账户密码不对呀");
+                alert("wrong");
             }
         });
     }
