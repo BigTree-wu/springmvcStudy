@@ -7,18 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>springmvc lists</title>
 </head>
-
-<style>
-    td{
-        padding: 2px;
-    }
-</style>
 <body>
-
-
 <table border="1">
-    <tr><td colspan="5">    <h1 style="color: #00c5ff">spring springJDBC springMVC ajax实现对数据的增删改查</h1>
-    </td></tr>
     <tr>
         <td width="50">Id</td>
         <td width="150">UserName</td>
@@ -28,11 +18,11 @@
     </tr>
     <c:forEach items="${pageBean.list}" var="admin">
         <tr>
-            <td>${admin.id}</td>
-            <td>${admin.username}</td>
-            <td>${admin.password}</td>
-            <td><a style="background: rgba(0,197,255,0);color: #00c5ff;border: 1px dashed #00c5ff;"  href="edit?id=${admin.id}">Edit</a></td>
-            <td><button style="background: rgba(0,197,255,0);color: #ff5329" onclick="deleteById(${admin.id})">Delete</button></td>
+            <td><c:out value="${admin.id}"/></td>
+            <td><c:out value="${admin.username}"/></td>
+            <td><c:out value="${admin.password}"/></td>
+            <td><a href="edit?id=${admin.id}">Edit</a></td>
+            <td><a href="del?id=${admin.id}">Delete</a></td>
         </tr>
     </c:forEach>
 
@@ -45,36 +35,12 @@
             <a
                     href="list?pageNo=${pageBean.getNextPageNo()}">下一页</a>
             <a
-                    href="list?pageNo=${pageBean.bottomPageNo}">尾页</a>
+                    href="list?pageNo=${pageBean.getNextPageNo()}">尾页</a>
 
         </td>
     </tr>
 </table>
 
-<h3><a href="add">添加</a></h3>
-<script type="text/javascript" src="/js/jquery-2.1.0.js"></script>
-<script>
-    function deleteById(id) {
-        $.ajax({
-            type: "post",
-            url: "del",
-            data: {
-                "id":id
-            },
-            success: function (data) {
-                alert(data.toString());
-
-                location.reload();
-            }
-        });
-    }
-</script>
-
-<c:if test="${msg != null}">
-    <script>
-        alert("${msg}")
-    </script>
-</c:if>
 
 </body>
 </html>

@@ -1,10 +1,5 @@
-package com.wolftrace.springmvc6.entity;
+package cap.model;
 
-/**
- * @author wolftrace
- * @version 1.0.0
- * @createTime 2018-09-13 9:51
- */
 public class Admin {
     private int id;
     private String username;
